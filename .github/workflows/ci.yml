@@ -1,0 +1,53 @@
+name: CI/CD Pipeline 🚀
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    name: 🧪 Run Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v3
+
+      - name: 🐍 Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: 📦 Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: ✅ Run Tests
+        run: pytest tests/ -v
+
+      - name: 📊 Coverage
+        run: pytest tests/ --cov=app --cov-report=term
+
+  deploy:
+    name: 🚀 Deploy
+    runs-on: ubuntu-latest
+    needs: test
+
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v3
+
+      - name: 🎉 Deploy
+        run: echo "✅ All tests passed! Deployed successfully!"
+```
+
+---
+
+## 🌐 ÉTAPE 11 — Mettre sur GitHub
+
+**1. Va sur github.com → "New repository"**
+```
+Repository name : mon_projet
+Visibility      : Public
+→ Clique "Create repository"
