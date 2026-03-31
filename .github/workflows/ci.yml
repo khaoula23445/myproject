@@ -40,14 +40,3 @@ jobs:
 
       - name: 🎉 Deploy
         run: echo "✅ All tests passed! Deployed successfully!"
-```
-
----
-
-## 🌐 ÉTAPE 11 — Mettre sur GitHub
-
-**1. Va sur github.com → "New repository"**
-```
-Repository name : mon_projet
-Visibility      : Public
-→ Clique "Create repository"
